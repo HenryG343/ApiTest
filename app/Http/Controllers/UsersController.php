@@ -42,7 +42,7 @@ class UsersController extends Controller
     {
         $user = new User();
         $user->email = $request->email;
-        $user->password = $request->password;
+        $user->password = bcrypt($request->password);
         $user->nombre = $request->nombre;
         $user->telefono = $request->telefono;
         $user->username = $request->username;
@@ -83,7 +83,7 @@ class UsersController extends Controller
     {
         $user = User::findOrFail($request->id);
         $user->email = $request->email;
-        $user->password = $request->password;
+        $user->password = bcrypt($request->password);
         $user->nombre = $request->nombre;
         $user->telefono = $request->telefono;
         $user->username = $request->username;

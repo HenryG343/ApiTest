@@ -22,11 +22,16 @@ Route::get('/productos','App\Http\Controllers\ProductosController@index');//Most
 Route::post('/productos','App\Http\Controllers\ProductosController@store');//Crear
 Route::put('/productos/{SKU}','App\Http\Controllers\ProductosController@update');//Actualizar
 Route::delete('/productos/{SKU}','App\Http\Controllers\ProductosController@destroy');//Eliminar
+
+Route::get('productos/buscarNombre/{nombre}','App\Http\Controllers\ProductosController@buscarNombre');//Buscar por nombre
+Route::get('productos/buscarSKU/{SKU}','App\Http\Controllers\ProductosController@buscarSKU');//Buscar por SKU
 //Usuarios
 Route::get('/user','App\Http\Controllers\UsersController@index');//Mostrar todo
 Route::post('/user','App\Http\Controllers\UsersController@store');//Crear
 Route::put('/user/{id}','App\Http\Controllers\UsersController@update');//Actualizar
 Route::delete('/user/{id}','App\Http\Controllers\UsersController@destroy');//Eliminar
+
+
 //Login y registro
 Route::group([
     'middleware' => 'api',

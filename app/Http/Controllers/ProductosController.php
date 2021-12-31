@@ -99,4 +99,10 @@ class ProductosController extends Controller
         $productos = Productos::destroy($request->SKU);
         return $productos;
     }
+    public function buscarNombre($nombre){
+        return Productos::where("nombre","like","%".$nombre."%")->get();
+    }
+    public function buscarSKU($sku){
+        return Productos::where("SKU","like",$sku)->get();
+    }
 }
